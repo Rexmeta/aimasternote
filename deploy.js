@@ -1,7 +1,3 @@
-import fs from 'fs';
-import MarkdownIt from 'markdown-it';
-import { google } from 'googleapis';
-
 const fs = require('fs');
 const MarkdownIt = require('markdown-it');
 const { google } = require('googleapis');

@@ -2,6 +2,10 @@ import fs from 'fs';
 import MarkdownIt from 'markdown-it';
 import { google } from 'googleapis';
 
+const fs = require('fs');
+const MarkdownIt = require('markdown-it');
+const { google } = require('googleapis');
+
 async function main() {
   const md = new MarkdownIt();
   const html = md.render(fs.readFileSync('post.md', 'utf8'));

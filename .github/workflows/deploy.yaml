@@ -3,7 +3,7 @@ name: 📝 Publish to Blogspot
 on:
   push:
     paths:
-      - 'post.md'  # 이 파일이 수정될 때만 실행
+      - 'content/posts/**'    # 이 파일이 수정될 때만 실행
 
 jobs:
   publish:

@@ -1,0 +1,30 @@
+name: 📝 Publish to Blogspot
+
+on:
+  push:
+    paths:
+      - 'post.md'  # 이 파일이 수정될 때만 실행
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔽 저장소 코드 가져오기
+        uses: actions/checkout@v3
+
+      - name: 🟢 Node.js 설치
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📦 필요한 패키지 설치
+        run: npm install
+
+      - name: 🚀 블로그에 글 자동 게시
+        run: node deploy.js
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          BLOG_ID: ${{ secrets.BLOG_ID }}
